@@ -179,10 +179,10 @@
     return [person get_gender];
 }
 
--(void) setPersonData: (int) male: (double) weight
+-(void) setPersonData: (int)maleGender : (double)weight
 {
     [person set_weight: weight];
-    [person set_gender: male];
+    [person set_gender: maleGender];
 }
 -(Stat*) getStat
 {

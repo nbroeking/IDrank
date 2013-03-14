@@ -26,7 +26,7 @@
 -(void) save_data;
 -(void) load_data;
 -(void) start_night_data;
--(void) setPersonData: (int) male: (double) weight;
+-(void) setPersonData: (int) maleGender : (double) weight;
 -(int) isReadyStart;
 -(double) getPersonWeight;
 -(int) getPersonSex;

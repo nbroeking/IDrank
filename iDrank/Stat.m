@@ -167,7 +167,7 @@
 - (double) calculate_bac: (double) tot_alc_oz witharg2: (int) weight witharg3: (int) gender witharg4: (NSDate*) starttime
 {
     // Girls process alcohol less efficiently than males, so the distribution ratio has to show this. 
-    double distr_ratio;
+    double distr_ratio = 0.0;
     double this_bac;
     if(gender == 1)
     {
@@ -342,7 +342,7 @@
  updating the running drink list bac details in real time.*/
 - (double) calc_small_bac: (double) tot_alc_oz witharg2: (int) weight witharg3: (int)gender witharg4: (NSDate*) start_time2 witharg5: (NSDate*) current_time
 {
-    double distr_ratio;
+    double distr_ratio = 0.0;
     double this_bac;
     if(gender == 1)
     {
