@@ -108,6 +108,7 @@
 		56AE4BD3163201CC000F28D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56AE4BAE163201CB000F28D3 /* Foundation.framework */; };
 		56AE4BDB163201CC000F28D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 56AE4BD9163201CC000F28D3 /* InfoPlist.strings */; };
 		56AE4BDE163201CC000F28D3 /* iDrankTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AE4BDD163201CC000F28D3 /* iDrankTests.m */; };
+		56C7A2D21BACDBA600B362D3 /* ListOfDrinksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C7A2D11BACDBA600B362D3 /* ListOfDrinksViewController.m */; settings = {ASSET_TAGS = (); }; };
 		56F19D4C16719323007C805C /* StatTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F19D4B16719323007C805C /* StatTableViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -253,6 +254,8 @@
 		56AE4BDA163201CC000F28D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		56AE4BDC163201CC000F28D3 /* iDrankTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iDrankTests.h; sourceTree = "<group>"; };
 		56AE4BDD163201CC000F28D3 /* iDrankTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDrankTests.m; sourceTree = "<group>"; };
+		56C7A2D01BACDBA600B362D3 /* ListOfDrinksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ListOfDrinksViewController.h; path = ../ListOfDrinksViewController.h; sourceTree = "<group>"; };
+		56C7A2D11BACDBA600B362D3 /* ListOfDrinksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ListOfDrinksViewController.m; path = ../ListOfDrinksViewController.m; sourceTree = "<group>"; };
 		56F19D4A16719323007C805C /* StatTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatTableViewController.h; sourceTree = "<group>"; };
 		56F19D4B16719323007C805C /* StatTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -459,6 +462,8 @@
 				56605FF216349F6200CD506E /* Main_Night_View_Controller.m */,
 				563AE63716AF1AF300415DA5 /* disclamerViewController.h */,
 				563AE63816AF1AF300415DA5 /* disclamerViewController.m */,
+				56C7A2D01BACDBA600B362D3 /* ListOfDrinksViewController.h */,
+				56C7A2D11BACDBA600B362D3 /* ListOfDrinksViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				56605FE716349E3B00CD506E /* Help_View_ControllerViewController.m in Sources */,
 				56605FF016349EFE00CD506E /* Credits_View_Controller.m in Sources */,
 				56605FF316349F6200CD506E /* Main_Night_View_Controller.m in Sources */,
+				56C7A2D21BACDBA600B362D3 /* ListOfDrinksViewController.m in Sources */,
 				11EC66501635D8DC00F702D1 /* ListOfDrinks.m in Sources */,
 				11EC66541635E14E00F702D1 /* Drink.m in Sources */,
 				1102B64F16361B95008DFB95 /* Stat.m in Sources */,
