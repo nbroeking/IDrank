@@ -29,24 +29,24 @@
 }
 
 //GETTERS
-- (int) get_gender{return gender;}
-- (int) get_weight{return weight;}
+- (long) get_gender{return gender;}
+- (long) get_weight{return weight;}
 
 //SETTERS
-- (id) set_gender:(int)my_gender
+- (id) set_gender:(long)my_gender
 {
     gender = my_gender;
     return self;
 }
 
-- (id) set_weight:(int) newWeight
+- (id) set_weight:(long) newWeight
 {
     weight = newWeight;
     return self;
 }
 
 //METHODS
-- (void) edit_information:(int)new_gender witharg2:(double)new_weight
+- (void) edit_information:(long)new_gender witharg2:(double)new_weight
 {
     gender = new_gender;
     weight = new_weight;
@@ -56,9 +56,9 @@
 {
     // This initializes the object when loaded from file
     self = [super init];
-    [self setGender:[aDecoder decodeIntForKey:@"genderCode"]];
-    [self setWeight:[aDecoder decodeIntForKey:@"weightCode"]];
-    [self setAge:[aDecoder decodeIntForKey:@"ageCode"]];
+    [self setGender:[aDecoder decodeIntegerForKey:@"genderCode"]];
+    [self setWeight:[aDecoder decodeIntegerForKey:@"weightCode"]];
+    [self setAge:[aDecoder decodeIntegerForKey:@"ageCode"]];
     [self setLocation:[aDecoder decodeBoolForKey:@"locationCode"]];
     [self setFirst_log:[aDecoder decodeBoolForKey:@"firstLogCode"]];
     
@@ -67,9 +67,9 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder
 {
     // Encodes the object when written to file
-    [aCoder encodeInt:gender forKey:@"genderCode"];
-    [aCoder encodeInt:weight forKey:@"weightCode"];
-    [aCoder encodeInt:age forKey:@"ageCode"];
+    [aCoder encodeInteger:gender forKey:@"genderCode"];
+    [aCoder encodeInteger:weight forKey:@"weightCode"];
+    [aCoder encodeInteger:age forKey:@"ageCode"];
     [aCoder encodeBool:location forKey:@"locationCode"];
     [aCoder encodeBool:first_log forKey:@"firstLogCode"];
 }

@@ -43,16 +43,16 @@
 }
 
 /*Removes a drink from the ListOfDrinks. The function takes an index as an argument so as to know which drink to delete from the list.*/
-- (void) remove_drink:(int) index
+- (void) remove_drink:(long) index
 {
     [drink_list removeObjectAtIndex:index];
 }
 
-/*This method removes a drink specified by the type passed into the method, instead of the index.*/
+/*This method removes a drink specified by the type passed longo the method, instead of the index.*/
 - (void) removeDrinkByType:(NSString*) type
 {
     bool removed = false;
-    for (int i =0; i<[drink_list count]; i++)
+    for (long i =0; i<[drink_list count]; i++)
     {
         if ([[[drink_list objectAtIndex:i] get_type] isEqualToString:type])
         {
@@ -66,7 +66,7 @@
  otherwise it returns false.*/
 - (bool) isDrinkWithDuplicateType:(NSString*) type
 {
-    for (int i =0; i<[drink_list count]; i++)
+    for (long i =0; i<[drink_list count]; i++)
     {
         if ([[[drink_list objectAtIndex:i] get_type] isEqualToString:type])
         {
@@ -79,7 +79,7 @@
 /*This method checks the ListOfDrinks to see if an existing drink has the same class(ex. Light)*/
 - (bool) isDrinkWithName:(NSString*) name
 {
-    for (int i =0; i<[drink_list count]; i++)
+    for (long i =0; i<[drink_list count]; i++)
     {
         if ([[[drink_list objectAtIndex:i] get_name] isEqualToString:name])
         {
@@ -92,7 +92,7 @@
 /*This method checks every drink in ListOfDrinks to see if it is a mixed drink or not.*/
 - (bool) isMixedDrinkThere
 {
-    for (int i =0; i<[drink_list count]; i++)
+    for (long i =0; i<[drink_list count]; i++)
     {
         if ([[drink_list objectAtIndex:i] get_mixed_drink_bit])
         {
@@ -105,7 +105,7 @@
 /*This methods checks every drink in ListOfDrinks to see if it is straight liquor. It returns a bool.*/
 - (bool) areShotsThere
 {
-    for (int i =0; i<[drink_list count]; i++)
+    for (long i =0; i<[drink_list count]; i++)
     {
         if ((([[drink_list objectAtIndex:i] get_mixed_drink_bit] == false) &&([[[drink_list objectAtIndex:i] get_name] isEqualToString:@"liquor"])))
         {

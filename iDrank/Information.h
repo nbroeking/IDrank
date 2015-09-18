@@ -9,24 +9,24 @@
 #import <Foundation/Foundation.h>
 
 @interface Information : NSObject <NSCoding>
-@property int gender;
-@property int weight;
-@property int age;
+@property long gender;
+@property long weight;
+@property long age;
 @property bool location;
 @property bool first_log;
 
 - (id) init;
 
 //SETTERS
-- (id) set_gender: (int) my_gender;
-- (id) set_weight: (int) my_weight;
+- (id) set_gender: (long) my_gender;
+- (id) set_weight: (long) my_weight;
 
 //GETTERS
-- (int) get_gender;
-- (int) get_weight;
+- (long) get_gender;
+- (long) get_weight;
 
 //METHODS
-- (void) edit_information: (int) new_gender witharg2: (double) new_weight;
+- (void) edit_information: (long) new_gender witharg2: (double) new_weight;
 
 -(id)initWithCoder:(NSCoder *)aDecoder;
 -(void)encodeWithCoder:(NSCoder *)aCoder;

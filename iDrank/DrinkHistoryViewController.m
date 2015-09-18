@@ -39,14 +39,14 @@
     drinkNameArray = [[NSMutableArray alloc]init];
     drinkDetailArray = [[NSMutableArray alloc]init];
     
-    int size = [[[[(Main_Navigation_View_Controller*)self.navigationController historyNights] objectAtIndex:index.row ] get_running_drink_list] count];
+    long size = [[[[(Main_Navigation_View_Controller*)self.navigationController historyNights] objectAtIndex:index.row ] get_running_drink_list] count];
     
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
     
     Stat *nighttemp = [[ navP historyNights] objectAtIndex:index.row];
     
     
-    for( int i = 0; i < size; i ++ )
+    for( long i = 0; i < size; i ++ )
     {
         /*If the drink name is Beer and the Type is either Light, Medium, or Malt, then the word "Beer" is appended to the end of the String.
          Otherwise Beer is not appended, in case in future iterations a user wants to add 'Keystone'. "Keystone" is a standalone name
@@ -194,7 +194,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        // Create a new instance of the appropriate class, insert it longo the array, and add a new row to the table view
     }   
 }
 */
@@ -234,7 +234,7 @@
     Drink* tempDrink = [[[[(Main_Navigation_View_Controller*)self.navigationController historyNights]objectAtIndex:index.row] get_running_drink_list] objectAtIndex:((NSIndexPath*)sender).row];
     [(HistoryDrinkMapViewController*)segue.destinationViewController setDrinkToShow:tempDrink];
 }
-- (void) drinkDetail: (int)indext witharg2:(NSMutableArray *)drinkDetail
+- (void) drinkDetail: (long)indext witharg2:(NSMutableArray *)drinkDetail
 {
     Stat *night = [[(Main_Navigation_View_Controller*)self.navigationController historyNights] objectAtIndex:index.row];
     

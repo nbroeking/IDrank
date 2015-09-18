@@ -109,12 +109,12 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if( [navp get_tot_num_drinks] != 1)
             {
-                NSString *info = [[NSString alloc]initWithFormat:@"%d drinks", [navp get_tot_num_drinks]];
+                NSString *info = [[NSString alloc]initWithFormat:@"%ld drinks", [navp get_tot_num_drinks]];
                 cell.detailTextLabel.text = info;
             }
             else
             {
-                NSString *info = [[NSString alloc]initWithFormat:@"%d drink", [navp get_tot_num_drinks]];
+                NSString *info = [[NSString alloc]initWithFormat:@"%ld drink", [navp get_tot_num_drinks]];
              
                 cell.detailTextLabel.text = info;
             }
@@ -173,7 +173,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        // Create a new instance of the appropriate class, insert it longo the array, and add a new row to the table view
     }   
 }
 */

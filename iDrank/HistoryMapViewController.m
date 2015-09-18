@@ -55,12 +55,12 @@
     toolBar.items = buttons;
     //[self updateMap:mapView];
     drinkNameArray = [[NSMutableArray alloc]init];
-    int size = [[[[navP historyNights]objectAtIndex:index.row] get_running_drink_list] count];
+    long size = [[[[navP historyNights]objectAtIndex:index.row] get_running_drink_list] count];
     double lat2, longi2;
     //[self.view addSubview:mapView];
     if([[[navP historyNights] objectAtIndex:index.row]get_tot_num_drinks] > 0)
     {
-        for(int i = 0; i < size; i++)
+        for(long i = 0; i < size; i++)
         {
             [self drinkName:i witharg2:drinkNameArray];
             CLLocation* drink_location = [[[[[navP historyNights] objectAtIndex:index.row] get_running_drink_list] objectAtIndex:i] get_drink_location];
@@ -149,7 +149,7 @@
 }
 
 
--(void)drinkName: (int)i witharg2: (NSMutableArray*)drinkName
+-(void)drinkName: (long)i witharg2: (NSMutableArray*)drinkName
 {
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
     

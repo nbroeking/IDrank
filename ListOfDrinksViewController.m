@@ -37,7 +37,7 @@
 // This prepares the tableview
 -(void)prepareTable
 {
-    int size = [[[(Main_Navigation_View_Controller*)self.navigationController getDrinkList] get_drink_list] count];
+    long size = [[[(Main_Navigation_View_Controller*)self.navigationController getDrinkList] get_drink_list] count];
     
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
     
@@ -55,7 +55,7 @@
     mixedDrinkDetailArray = [[NSMutableArray alloc] init];
     mixedDrinkTypeOnlyArray = [[NSMutableArray alloc] init];
     
-    for( int i = 0; i < size; i ++ )
+    for( long i = 0; i < size; i ++ )
     {
         
        

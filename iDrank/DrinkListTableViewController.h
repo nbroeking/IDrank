@@ -15,7 +15,7 @@
 @property MapDrinkViewController* mapDrinkViewController;
 
 //METHODS
-- (void) drinkDetail:(int)index witharg2: (NSMutableArray*) drinkDetail;
--(void)reset_data:(int)index;
+- (void) drinkDetail:(long)index witharg2: (NSMutableArray*) drinkDetail;
+-(void)reset_data:(long)index;
 
 @end

@@ -57,7 +57,7 @@
     shotDrinkArray2 = [[NSMutableArray alloc]init];
     mixedDrinkArray1 = [[NSMutableArray alloc]init];
     mixedDrinkArray2 = [[NSMutableArray alloc]init];
-    for(int i = 0; i < [[[navP getDrinkList]get_drink_list] count]; i++)
+    for(long i = 0; i < [[[navP getDrinkList]get_drink_list] count]; i++)
     {
         if([[[[[navP getDrinkList]get_drink_list]objectAtIndex:i]get_name] isEqualToString:@"liquor"] && [[[[navP getDrinkList] get_drink_list] objectAtIndex:i] get_mixed_drink_bit] == FALSE)
         {
@@ -94,7 +94,7 @@
     
     NSString *proofString = [[NSString alloc] initWithFormat:@"%.1f", [liqourDrink get_ac]*2];
     
-    NSString *shotCountString = [[NSString alloc] initWithFormat:@"%d", shotCount];
+    NSString *shotCountString = [[NSString alloc] initWithFormat:@"%ldd", shotCount];
     
     
     shots.text = shotCountString;
@@ -127,7 +127,7 @@
 - (IBAction)sliderChanged
 {
  
-    [liqourDrink set_ac:(int)pslider.value];
+    [liqourDrink set_ac:(long)pslider.value];
     
     NSString *alcoholContentString = [[NSString alloc]initWithFormat:@"%.0f", [liqourDrink get_ac]];
     
@@ -166,7 +166,7 @@
 {
     [liqourDrink set_size:(1.5*stepper.value)];
     
-    NSString *shotString = [[NSString alloc] initWithFormat:@"%d", (int)stepper.value];
+    NSString *shotString = [[NSString alloc] initWithFormat:@"%ld", (long)stepper.value];
     
     shots.text = shotString;
 }
@@ -208,7 +208,7 @@
 
     [locationMeasurements addObject:newLocation];
 
-    for(int i = 0; i < [locationMeasurements count]-1; i++)
+    for(long i = 0; i < [locationMeasurements count]-1; i++)
     {
         CLLocation* temp = [[self locationMeasurements] objectAtIndex:i];
         CLLocation* temp2 = [[self locationMeasurements] objectAtIndex:i+1];

@@ -11,13 +11,13 @@
 @implementation Annotation
 
 //Synthesizing variables declared in the .h file
-@synthesize title;
-@synthesize subtitle;
+@synthesize Annotationtitle=title;
+@synthesize Annotationsubtitle=subtitle;
 @synthesize coordinate;
 
 /*
  initWithCoordinates() takes in the location of the drink, the drink name (ex. Whiskey), and the time the drink was drunk.
- The function loads the arguments into the variables synthesized above
+ The function loads the arguments longo the variables synthesized above
  */
 - (id) initWithCoordinates:(CLLocationCoordinate2D)location :(NSString *)drink_name :(NSString *)time_drank
 {

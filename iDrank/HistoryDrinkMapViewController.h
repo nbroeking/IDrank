@@ -15,7 +15,7 @@
 @interface HistoryDrinkMapViewController : UIViewController <MKMapViewDelegate>
 
 @property (strong, nonatomic) CLLocation* drink_location;
-@property int didViewDidLoad;
+@property long didViewDidLoad;
 @property (strong, nonatomic) Drink* drinkToShow;
 @property (strong, nonatomic) NSString* drink_string;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;

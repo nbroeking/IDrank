@@ -17,7 +17,7 @@
 - (NSMutableArray*) get_drink_list;
 
 - (void) add_drink: (Drink*) drink;
-- (void) remove_drink: (int) index;
+- (void) remove_drink: (long) index;
 - (void) removeDrinkByType:(NSString*) type;
 - (bool) isDrinkWithDuplicateType:(NSString*) type;
 - (bool) isDrinkWithName:(NSString*) name;

@@ -12,8 +12,8 @@
 @interface Annotation : NSObject <MKAnnotation>
 
 // Creating the title, subtitle, and the coordinate of the annotation going on the map 
-@property (retain, nonatomic)NSString* title;
-@property (retain, nonatomic)NSString* subtitle;
+@property (retain, nonatomic)NSString* Annotationtitle;
+@property (retain, nonatomic)NSString* Annotationsubtitle;
 @property (readonly, nonatomic)CLLocationCoordinate2D coordinate;
 
 // Init and getters for the properties

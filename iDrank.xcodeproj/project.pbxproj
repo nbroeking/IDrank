@@ -486,6 +486,7 @@
 		56AE4BB2163201CB000F28D3 /* iDrank */ = {
 			isa = PBXGroup;
 			children = (
+				56FE09DF1819D594008D3799 /* iPad */,
 				56AF47DB16B225B400F788D7 /* disclaimer@2x.png */,
 				56AF47DC16B225B400F788D7 /* disclaimer5.png */,
 				56AF6E9F16B214790085095E /* accept.png */,
@@ -627,6 +628,13 @@
 			name = Stat;
 			sourceTree = "<group>";
 		};
+		56FE09DF1819D594008D3799 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -664,7 +672,7 @@
 			name = iDrankTests;
 			productName = iDrankTests;
 			productReference = 56AE4BCF163201CC000F28D3 /* iDrankTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -672,6 +680,7 @@
 		56AE4B9F163201CB000F28D3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0640;
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = MANNW;
 			};
@@ -929,9 +938,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDrank/iDrank-Prefix.pch";
 				INFOPLIST_FILE = "iDrank/iDrank-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -943,9 +953,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iDrank/iDrank-Prefix.pch";
 				INFOPLIST_FILE = "iDrank/iDrank-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

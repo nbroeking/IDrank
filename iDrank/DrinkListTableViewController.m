@@ -30,7 +30,7 @@
     return self;
 }
 /*This function formats the drinkDetails display with the time and bac when the drink was drank*/
-- (void) drinkDetail: (int)index witharg2:(NSMutableArray *)drinkDetail
+- (void) drinkDetail: (long)index witharg2:(NSMutableArray *)drinkDetail
 {
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
     double temp = [[[[navP getStat]get_bac_array]objectAtIndex:index] doubleValue];
@@ -50,11 +50,11 @@
     self.navigationItem.rightBarButtonItem=self.editButtonItem;
     drinkNameArray = [[NSMutableArray alloc]init];
     drinkDetailArray = [[NSMutableArray alloc]init];
-    int size = [[[(Main_Navigation_View_Controller*)self.navigationController getStat] get_running_drink_list] count];
+    unsigned long size = [[[(Main_Navigation_View_Controller*)self.navigationController getStat] get_running_drink_list] count];
     
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
 
-    for( int i = 0; i < size; i ++ )
+    for( long i = 0; i < size; i ++ )
     {
         /*If the drink name is Beer and the Type is either Light, Medium, or Malt, then the word "Beer" is appended to the end of the String.
          Otherwise Beer is not appended, in case in future iterations a user wants to add 'Keystone'. "Keystone" is a standalone name
@@ -199,7 +199,7 @@ else
 /*This method is called if the user deletes a drink from the running drink list in the current night. 
  It's primary purpose is to decrement the total number of drinks drank by the user based on the type and
  size of the drink*/
--(void)reset_data:(int)index
+-(void)reset_data:(long)index
 {
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
 
@@ -214,12 +214,12 @@ else
     {
         if([[[[navP getStat] get_running_drink_list] objectAtIndex:index] get_size] == 25.36)
         {
-            int temp = [[navP getStat]get_tot_num_drinks]-5;
+            long temp = [[navP getStat]get_tot_num_drinks]-5;
             [[navP getStat]set_tot_num_drinks:temp];
         }
         else
         {
-            int temp = [[navP getStat]get_tot_num_drinks] - 1;
+            long temp = [[navP getStat]get_tot_num_drinks] - 1;
             [[navP getStat]set_tot_num_drinks:temp];
         }
     }
@@ -230,24 +230,24 @@ else
         {
             if ([[[[navP getStat] get_running_drink_list] objectAtIndex:index] get_size] > 1.5)
             {
-                int temp = [[navP getStat]get_tot_num_drinks] - [[[[navP getStat]get_running_drink_list]objectAtIndex:index]get_size]/1.5;
+                long temp = [[navP getStat]get_tot_num_drinks] - [[[[navP getStat]get_running_drink_list]objectAtIndex:index]get_size]/1.5;
                 [[navP getStat]set_tot_num_drinks:temp];
             }
             else
             {
-                int temp = [[navP getStat]get_tot_num_drinks] - 1;
+                long temp = [[navP getStat]get_tot_num_drinks] - 1;
                 [[navP getStat]set_tot_num_drinks:temp];
             }
         }
         else
         {
-            int temp = [[navP getStat]get_tot_num_drinks] - 1;
+            long temp = [[navP getStat]get_tot_num_drinks] - 1;
             [[navP getStat]set_tot_num_drinks:temp];
         }
     }
     else
     {
-        int temp = [[navP getStat]get_tot_num_drinks] - 1;
+        long temp = [[navP getStat]get_tot_num_drinks] - 1;
         [[navP getStat]set_tot_num_drinks:temp];
     }
     
@@ -263,7 +263,7 @@ else
         //change total number of drinks
         Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
         
-        int numDrinkEntries = [[[navP getStat]get_running_drink_list] count];
+        long numDrinkEntries = [[[navP getStat]get_running_drink_list] count];
   
         /*If the drink deleted was the last drink in the list*/
         if (indexPath.row == numDrinkEntries - 1)

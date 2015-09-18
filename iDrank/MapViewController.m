@@ -45,12 +45,12 @@
     mapView.showsUserLocation = YES;
 
     drinkNameArray = [[NSMutableArray alloc]init];
-    int size = [[[navP getStat]get_running_drink_list] count];
+    long size = [[[navP getStat]get_running_drink_list] count];
     double lat, longi;
     [self.view addSubview:mapView];
     if([[navP getStat]get_tot_num_drinks] > 0)
     {
-        for(int i = 0; i < size; i++)
+        for(long i = 0; i < size; i++)
         {
             [self drinkName:i witharg2:drinkNameArray];
             CLLocation* drink_location = [[[[navP getStat] get_running_drink_list] objectAtIndex:i] get_drink_location];
@@ -97,7 +97,7 @@
 }
 
 /*This method basically creates the callout text for the pin annotation on the map based on what the user drank . */
--(void)drinkName: (int)i witharg2: (NSMutableArray*)drinkName
+-(void)drinkName: (long)i witharg2: (NSMutableArray*)drinkName
 {
     Main_Navigation_View_Controller* navP = (Main_Navigation_View_Controller*)self.navigationController;
     

@@ -140,7 +140,7 @@
     [self save_data];
 }
 
--(int) isReadyStart
+-(long) isReadyStart
 {
     // Checks for settings errors 
     if(([person get_gender] == 0)&&([person get_weight]==0)&&([person age]== 0))
@@ -174,12 +174,12 @@
 {
     return [person get_weight];
 }
--(int) getPersonSex
+-(long) getPersonSex
 {
     return [person get_gender];
 }
 
--(void) setPersonData: (int)maleGender : (double)weight
+-(void) setPersonData: (long)maleGender : (double)weight
 {
     [person set_weight: weight];
     [person set_gender: maleGender];

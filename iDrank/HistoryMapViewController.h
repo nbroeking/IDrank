@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (strong, nonatomic) NSIndexPath *index;
 @property (strong, nonatomic) NSMutableArray *drinkNameArray;
-@property int didViewDidLoad;
+@property long didViewDidLoad;
 @property (strong, nonatomic) NSMutableArray* buttons;
 
 
@@ -30,6 +30,6 @@
 
 
 
--(void)drinkName: (int)i witharg2: (NSMutableArray*)drinkName;
+-(void)drinkName: (long)i witharg2: (NSMutableArray*)drinkName;
 
 @end

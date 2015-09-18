@@ -26,10 +26,10 @@
 -(void) save_data;
 -(void) load_data;
 -(void) start_night_data;
--(void) setPersonData: (int) maleGender : (double) weight;
--(int) isReadyStart;
+-(void) setPersonData: (long) maleGender : (double) weight;
+-(long) isReadyStart;
 -(double) getPersonWeight;
--(int) getPersonSex;
+-(long) getPersonSex;
 -(Stat*) getStat;
 -(ListOfDrinks*) getDrinkList;
 

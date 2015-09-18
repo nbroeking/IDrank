@@ -101,9 +101,9 @@
         if( indexPath.row == 1)
         {
             if([[navCont night]get_tot_num_drinks] == 1)
-                cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d %@", [[navCont night] tot_num_drinks], @"Drink"];
+                cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%ld %@", [[navCont night] tot_num_drinks], @"Drink"];
             else
-                cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d %@", [[navCont night] tot_num_drinks], @"Drinks"];
+                cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%ld %@", [[navCont night] tot_num_drinks], @"Drinks"];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
         else if( indexPath.row == 2)
@@ -161,7 +161,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        // Create a new instance of the appropriate class, insert it longo the array, and add a new row to the table view
     }   
 }
 */

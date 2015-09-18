@@ -17,16 +17,16 @@
 @property (strong, nonatomic) NSMutableArray *drinkNameArray;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
-@property int didViewDidLoad;
+@property long didViewDidLoad;
 
 
 
 - (void)stopUpdatingLocation:(NSString *)state;
 - (void)displayMap;
 -(void)reset;
-//- (void) changeMapType: (id)sender : (int)bit;
+//- (void) changeMapType: (id)sender : (long)bit;
 
--(void)drinkName: (int)i witharg2: (NSMutableArray*)drinkName;
+-(void)drinkName: (long)i witharg2: (NSMutableArray*)drinkName;
 
 @end
 

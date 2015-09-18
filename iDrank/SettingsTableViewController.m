@@ -84,14 +84,14 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView :(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 5;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView :(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if( section == 0)
     {
@@ -111,7 +111,7 @@
     }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView :(UITableView *)tableView cellForRowAtIndexPath :(NSIndexPath *)indexPath
 {
     // This sets up the individual cell
     static NSString *CellIdentifier;
@@ -127,7 +127,7 @@
     {
         CellIdentifier = @"Cell";
     }
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath:indexPath];
  
     if( indexPath.section == 0)
     {
@@ -172,14 +172,13 @@
             
             if([[(Main_Navigation_View_Controller*)self.navigationController person] weight] != 0)
             {
-                NSString *weight = [[NSString alloc] initWithFormat:@"%d Lbs",[[(Main_Navigation_View_Controller*)self.navigationController person] weight]];
+                NSString *weight = [[NSString alloc] initWithFormat:@"%ld Lbs",[[(Main_Navigation_View_Controller*)self.navigationController person] weight]];
                 cell.detailTextLabel.text = weight;
             }
-            else
-            {
+            else{
+        
                 cell.detailTextLabel.text = @"Lbs";
             }
-            
         }
         else if(indexPath.row == 1)
         {
@@ -193,7 +192,7 @@
             }
             if([[(Main_Navigation_View_Controller*)self.navigationController person] age] != 0)
             {
-                NSString *age = [[NSString alloc] initWithFormat:@"%d",[[(Main_Navigation_View_Controller*)self.navigationController person] age]];
+                NSString *age = [[NSString alloc] initWithFormat:@"%ld",[[(Main_Navigation_View_Controller*)self.navigationController person] age]];
                 cell.detailTextLabel.text = age;
             }
             else
@@ -207,8 +206,8 @@
             cell.detailTextLabel.text = @"";
         }
     }
-    //----------------------------------------------------------
-    else if( indexPath.section == 2)
+
+    else if(indexPath.section == 2)
     {
         cell.textLabel.text = [nightMenu objectAtIndex:indexPath.row];
         cell.detailTextLabel.text = @"";
@@ -251,8 +250,7 @@
             cell.detailTextLabel.text = @"";
         }
     }
-    else
-    {
+    else{
         cell.accessoryType= UITableViewCellAccessoryNone;
         cell.textLabel.text = @"";
         cell.detailTextLabel.text = @"";
@@ -329,7 +327,7 @@
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        // Create a new instance of the appropriate class, insert it longo the array, and add a new row to the table view
     }   
 }
 */
@@ -463,7 +461,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter a valid integer." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter a valid longeger." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
@@ -475,8 +473,8 @@
 }
 -(BOOL)checkField:(UITextField*)textField
 {
-    int size = [textField.text length];
-    for( int i = 0; i < size; i++)
+    long size = [textField.text length];
+    for( long i = 0; i < size; i++)
     {
         char a = [textField.text characterAtIndex:i];
         

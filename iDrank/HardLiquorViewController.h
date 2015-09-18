@@ -35,7 +35,7 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSMutableArray *locationMeasurements;
 @property (nonatomic, retain) CLLocation *bestEffortAtLocation;
-@property int shotCount;
+@property long shotCount;
 @property (strong, nonatomic) IBOutlet UIView *pickerView;
 
 - (IBAction)step:(id)sender;

@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) CLLocation* drink_location;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
-@property int didViewDidLoad;
+@property long didViewDidLoad;
 @property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
 @property (strong, nonatomic) Drink* drinkToShow;
 @property (strong, nonatomic) NSString* drink_string;

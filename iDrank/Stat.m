@@ -14,7 +14,7 @@
 @synthesize type;
 @synthesize start_time;
 @synthesize time_prev_drink;
-@synthesize time_interval;
+@synthesize time_longerval;
 @synthesize total_num_alc_oz;
 @synthesize running_drink_list;
 @synthesize tot_num_drinks;
@@ -52,25 +52,25 @@
 - (NSString*) get_type{return type;}
 - (NSDate*) get_start_time {return start_time;}
 - (NSDate*) get_time_prev_drink{return time_prev_drink;}
-- (double) get_time_interval{return time_interval;}
+- (double) get_time_longerval{return time_longerval;}
 - (double) get_total_num_alc_oz{return total_num_alc_oz;}
 - (NSMutableArray*) get_running_drink_list {return running_drink_list;}
-- (int) get_tot_num_drinks;{return tot_num_drinks;}
+- (long) get_tot_num_drinks;{return tot_num_drinks;}
 - (BOOL) get_night_is_started{return night_is_started;}
 - (NSString*) get_start_time_string {return start_time_string;}
 - (NSString*) get_time_prev_drink_string {return time_prev_drink_string;}
 - (NSMutableArray*) get_bac_array {return bac_array;}
-- (int) get_user_weight {return user_weight;}
-- (int) get_user_gender {return user_gender;}
+- (long) get_user_weight {return user_weight;}
+- (long) get_user_gender {return user_gender;}
 
 //SETTERS
-- (id) set_user_gender:(int)gender
+- (id) set_user_gender:(long)gender
 {
     user_gender = gender;
     return self;
 }
 
-- (id) set_user_weight:(int)weight
+- (id) set_user_weight:(long)weight
 {
     user_weight = weight;
     return self;
@@ -98,9 +98,9 @@
     [self convert_prev_time];
     return self;
 }
-- (id) set_time_interval:(NSDate *)first_time witharg2: (NSDate*) second_time
+- (id) set_time_longerval:(NSDate *)first_time witharg2: (NSDate*) second_time
 {
-    time_interval = fabs([second_time timeIntervalSinceDate:first_time]);
+    time_longerval = fabs([second_time timeIntervalSinceDate:first_time]);
     return self;
 }
 - (id) set_total_num_alc_oz: (double) my_drink_alc_content witharg2: (double) my_drink_size2
@@ -128,7 +128,7 @@
     return self;
 }
 
-- (id) set_tot_num_drinks: (int) number
+- (id) set_tot_num_drinks: (long) number
 {
     tot_num_drinks = number;
     return self;
@@ -164,7 +164,7 @@
 /*This method is responsible for calculating the users BAC based on a number of key factors: the total_alcoholic_ouces consumed, 
  the weight of the user, the gender of the user, and the time the night started. The formula used in this application is the same
  one used in the breathelizer test.*/
-- (double) calculate_bac: (double) tot_alc_oz witharg2: (int) weight witharg3: (int) gender witharg4: (NSDate*) starttime
+- (double) calculate_bac: (double) tot_alc_oz witharg2: (long) weight witharg3: (long) gender witharg4: (NSDate*) starttime
 {
     // Girls process alcohol less efficiently than males, so the distribution ratio has to show this. 
     double distr_ratio = 0.0;
@@ -179,7 +179,7 @@
     }
     NSDate *present = [NSDate date]; //getting present timestamp
     double timeInterval_sec = [present timeIntervalSinceDate:starttime]; //getting time in seconds b/w starttime and present time
-    double timeInterval_hr = timeInterval_sec/3600; //converting the time interval to hours
+    double timeInterval_hr = timeInterval_sec/3600; //converting the time longerval to hours
     
     // Calculating the BAC based on the widely used Widmark's formula. 
     this_bac = ((tot_alc_oz * 5.14)/(weight * distr_ratio)) - (.015 * timeInterval_hr); //calculate bac
@@ -256,7 +256,7 @@
 }
 
 //Deletes a drink at an index from the running drink list
-- (void) delete_drink: (int) index
+- (void) delete_drink: (long) index
 {
     [running_drink_list removeObjectAtIndex:index];
     tot_num_drinks = tot_num_drinks - 1;
@@ -279,7 +279,7 @@
         }
         else
         {
-            int temp = [my_drink get_size]/1.5;
+            long temp = [my_drink get_size]/1.5;
             [self set_tot_num_drinks:[self get_tot_num_drinks]+temp];
         }
     }
@@ -292,7 +292,7 @@
         }
         else
         {
-            int temp = [my_drink get_size]/5;
+            long temp = [my_drink get_size]/5;
             [self set_tot_num_drinks:[self get_tot_num_drinks]+temp];
         }
     }
@@ -311,7 +311,7 @@
     double temp_oz = 0.0;
     NSDate* temp_date;
 
-    for(int i = 0; i < [[self get_running_drink_list] count]; i++)
+    for(long i = 0; i < [[self get_running_drink_list] count]; i++)
     {
         temp_oz = temp_oz + ([[[self get_running_drink_list] objectAtIndex:i]get_size] * ([[[self get_running_drink_list]objectAtIndex:i]get_ac]/100));
         
@@ -328,7 +328,7 @@
 - (double) calculate_highest_BAC
 {
     double answer = 0;
-    for(int i = 0; i < [[self get_bac_array] count]; i++)
+    for(long i = 0; i < [[self get_bac_array] count]; i++)
     {
         if([[[self get_bac_array] objectAtIndex:i] doubleValue] > answer)
         {
@@ -340,7 +340,7 @@
 
 /*This method calculates a seperate bac based on the drinks in front of it and the start time. This method is the workhorse behind
  updating the running drink list bac details in real time.*/
-- (double) calc_small_bac: (double) tot_alc_oz witharg2: (int) weight witharg3: (int)gender witharg4: (NSDate*) start_time2 witharg5: (NSDate*) current_time
+- (double) calc_small_bac: (double) tot_alc_oz witharg2: (long) weight witharg3: (long)gender witharg4: (NSDate*) start_time2 witharg5: (NSDate*) current_time
 {
     double distr_ratio = 0.0;
     double this_bac;
@@ -354,7 +354,7 @@
     }
     
     double timeInterval_sec = [current_time timeIntervalSinceDate:start_time2]; //getting time in seconds b/w starttime and present time
-    double timeInterval_hr = (timeInterval_sec/3600); //converting the time interval to hours
+    double timeInterval_hr = (timeInterval_sec/3600); //converting the time longerval to hours
 
     this_bac = ((tot_alc_oz * 5.14)/(weight * distr_ratio)) - (.015 * timeInterval_hr); //calculate bac
 
@@ -377,14 +377,14 @@
         [self setType:[aDecoder decodeObjectForKey:@"typeCode"]];
         [self setStart_time:[aDecoder decodeObjectForKey:@"startTimeCode"]];
         [self setTime_prev_drink:[aDecoder decodeObjectForKey:@"timePrevDrinkCode"]];
-        [self setTime_interval:[aDecoder decodeDoubleForKey:@"timeIntervalCode"]];
+        [self setTime_longerval:[aDecoder decodeDoubleForKey:@"timeIntervalCode"]];
         [self setTotal_num_alc_oz:[aDecoder decodeDoubleForKey:@"totalNumCode"]];
         [self setRunning_drink_list:[[aDecoder decodeObjectForKey:@"runningDrinkListCode"] mutableCopy]];
-        [self setUser_gender:[aDecoder decodeIntForKey:@"genderCode"]];
-        [self setUser_weight:[aDecoder decodeIntForKey:@"weightCode"]];
-        [self setUser_age:[aDecoder decodeIntForKey:@"ageCode"]];
+        [self setUser_gender:[aDecoder decodeIntegerForKey:@"genderCode"]];
+        [self setUser_weight:[aDecoder decodeIntegerForKey:@"weightCode"]];
+        [self setUser_age:[aDecoder decodeIntegerForKey:@"ageCode"]];
         [self setLocation:[aDecoder decodeBoolForKey:@"locationCode"]];
-        [self setTot_num_drinks:[aDecoder decodeIntForKey:@"totNumDrinksCode"]];
+        [self setTot_num_drinks:[aDecoder decodeIntegerForKey:@"totNumDrinksCode"]];
         [self setNight_is_started:[aDecoder decodeBoolForKey:@"nightStartedCode"]];
         [self setBac:[aDecoder decodeDoubleForKey:@"bacCode"]];
         [self setStart_time_string:[aDecoder decodeObjectForKey:@"timeStartStringCode"]];
@@ -401,14 +401,14 @@
     [aCoder encodeObject:type forKey:@"typeCode"];
     [aCoder encodeObject:start_time forKey:@"startTimeCode"];
     [aCoder encodeObject:time_prev_drink forKey:@"timePrevDrinkCode"];
-    [aCoder encodeDouble:time_interval forKey:@"timeIntervalCode"];
+    [aCoder encodeDouble:time_longerval forKey:@"timeIntervalCode"];
     [aCoder encodeDouble:total_num_alc_oz forKey:@"totalNumCode"];
     [aCoder encodeObject:running_drink_list forKey:@"runningDrinkListCode"];
-    [aCoder encodeInt:user_gender forKey:@"genderCode"];
-    [aCoder encodeInt:user_weight forKey:@"weightCode"];
-    [aCoder encodeInt:user_age forKey:@"ageCode"];
+    [aCoder encodeInteger:user_gender forKey:@"genderCode"];
+    [aCoder encodeInteger:user_weight forKey:@"weightCode"];
+    [aCoder encodeInteger:user_age forKey:@"ageCode"];
     [aCoder encodeBool:location forKey:@"locationCode"];
-    [aCoder encodeInt:tot_num_drinks forKey:@"totNumDrinksCode"];
+    [aCoder encodeInteger:tot_num_drinks forKey:@"totNumDrinksCode"];
     [aCoder encodeBool:night_is_started forKey:@"nightStartedCode"];
     [aCoder encodeDouble:bac forKey:@"bacCode"];
     [aCoder encodeObject:start_time_string forKey:@"timeStartStringCode"];

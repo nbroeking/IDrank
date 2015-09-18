@@ -57,7 +57,7 @@
     
     NSMutableArray* array = [[NSMutableArray alloc] init];
     NSMutableArray* array2 = [[NSMutableArray alloc]init];
-    for(int i = 0; i < [[[navP getDrinkList]get_drink_list] count]; i++)
+    for(long i = 0; i < [[[navP getDrinkList]get_drink_list] count]; i++)
     {
         if([[[[[navP getDrinkList]get_drink_list]objectAtIndex:i]get_name] isEqualToString:@"wine"])
         {
@@ -168,7 +168,7 @@
     
     [locationMeasurements addObject:newLocation];
     
-    for(int i = 0; i < [locationMeasurements count]-1; i++)
+    for(long i = 0; i < [locationMeasurements count]-1; i++)
     {
         CLLocation* temp = [[self locationMeasurements] objectAtIndex:i];
         CLLocation* temp2 = [[self locationMeasurements] objectAtIndex:i+1];

@@ -117,7 +117,7 @@
                 [acSlider setMinimumValue:0];
                 [acSlider setMaximumValue:100];
                 [acSlider setValue:20];
-                cell.textLabel.text = [[NSString alloc] initWithFormat:@"AC: %d Proof: %d", (int)acSlider.value, (int)acSlider.value*2 ];
+                cell.textLabel.text = [[NSString alloc] initWithFormat:@"AC: %ld Proof: %ld", (long)acSlider.value, (long)acSlider.value*2 ];
             }
             else
             {
@@ -219,7 +219,7 @@
     
     if( [drinkClass isEqualToString:@"liquor"] )
     {
-        cell.textLabel.text = [[NSString alloc] initWithFormat:@"AC: %d Proof: %d", (int)acSlider.value, (int)acSlider.value*2 ];
+        cell.textLabel.text = [[NSString alloc] initWithFormat:@"AC: %ld Proof: %ld", (long)acSlider.value, (long)acSlider.value*2 ];
     }
     else
     {
@@ -227,10 +227,10 @@
     }
 }
 
-// Checks the textField to see if the text is an integer
+// Checks the textField to see if the text is an longeger
 -(BOOL)checkField:(UITextField*)textField
 {
-    int size = [textField.text length];
+    long size = [textField.text length];
     
     if (size > 18)
     {

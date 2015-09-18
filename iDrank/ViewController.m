@@ -46,7 +46,7 @@
     if([self checkIfOkToStart])
         {
             // checks if everything is ok with the rest of the settings
-            int ok = [(Main_Navigation_View_Controller*)self.navigationController isReadyStart];
+            long ok = [(Main_Navigation_View_Controller*)self.navigationController isReadyStart];
             if( ok == 0 )
             {
                 [self performSegueWithIdentifier:@"startNightSeque" sender:self];
