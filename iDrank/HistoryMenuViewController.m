@@ -50,7 +50,7 @@
     {
         [self.navigationController setToolbarHidden:NO animated:YES];
         NSMutableArray *buttonsArray = [[NSMutableArray alloc] init];
-        UIBarButtonItem *deleteButton=[[UIBarButtonItem alloc] initWithTitle:@"Clear History" style: UIBarButtonItemStyleBordered target:self action:@selector(toolbarButtonPressed1)];
+        UIBarButtonItem *deleteButton=[[UIBarButtonItem alloc] initWithTitle:@"Clear History" style: UIBarButtonItemStylePlain target:self action:@selector(toolbarButtonPressed1)];
         [buttonsArray addObject:deleteButton];
         [self setToolbarItems:buttonsArray animated:YES];
     }

@@ -430,8 +430,14 @@
         {
             if( [textField.text intValue] > 1000)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You don't weigh that much." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You don't weigh that much." preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
+                
             }
             else
             {
@@ -443,26 +449,43 @@
         {
             if( [textField.text intValue] > 100)
             {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You are not that old." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You are not that old." preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
             }
             else
             {
                 [[(Main_Navigation_View_Controller*)self.navigationController person] setAge:[ ageField.text intValue]];
         
-            if( [ageField.text intValue] < 21)
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notice" message:@"The age entered indicates that it may be illegal for you to drink in certain areas.  We do not condone underage drinking and take no responsibilty for any crimes you may commit while using this application." delegate:self cancelButtonTitle:@"Agree" otherButtonTitles:nil, nil];
-            
-                [alert show];
-            }
+                if( [ageField.text intValue] < 21)
+                {
+                
+                    UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Notice" message:@"The age entered indicates that it may be illegal for you to drink in certain areas.  We do not condone underage drinking and take no responsibilty for any crimes you may commit while using this application."  preferredStyle: UIAlertControllerStyleAlert];
+                    
+                    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Agree" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                    [error addAction:defaultAction];
+                    [self presentViewController:error animated:YES completion:nil];
+                
+                }
             }
         }
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must enter a valid longeger." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You must enter a valid integer" preferredStyle: UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [error addAction:defaultAction];
+        [self presentViewController:error animated:YES completion:nil];
+    
     }
     
     [(Main_Navigation_View_Controller*)self.navigationController save_data];

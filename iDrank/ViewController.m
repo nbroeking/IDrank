@@ -54,42 +54,75 @@
             }
             else if( ok == 1)
             {
-                UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"You must set your gender." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [error show];
-        
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You must set your gender" preferredStyle: UIAlertControllerStyleAlert];
+                                            
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
                 [self performSegueWithIdentifier: @"settingSegue" sender:self];
             }
             else if( ok == 3)
             {
-                UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"You must set your age." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [error show];
+                
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You must set your age." preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
+                
         
                 [self performSegueWithIdentifier:@"settingSegue" sender:self];
             }
             else if( ok == 4)
             {
-                UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Welcome" message:@"Please set your settings before using our app." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [error show];
+                
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Welcome" message:@"Please set your setting before using our app." preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
+                
                 [self performSegueWithIdentifier:@"settingSegue" sender:self];
             }
             else if( ok == 5)
             {
-                UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You need to set your settings." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [error show];
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You need to set your settings." preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
                 [self performSegueWithIdentifier:@"settingSegue" sender:self];
             }
             else
             {
-                UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Error!" message:@"You must set your weight." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [error show];
         
+                UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You must set your weight" preferredStyle: UIAlertControllerStyleAlert];
+                
+                UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                      handler:^(UIAlertAction * action) {}];
+                
+                [error addAction:defaultAction];
+                [self presentViewController:error animated:YES completion:nil];
                 [self performSegueWithIdentifier: @"settingSegue" sender:self];
             }
         }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You must have at least one drink in each category." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Error!" message:@"You must have at least one drink in each category." preferredStyle: UIAlertControllerStyleAlert];
+        
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [error addAction:defaultAction];
+        [self presentViewController:error animated:YES completion:nil];
         
         [self performSegueWithIdentifier:@"settingSegue" sender:self];
     }
@@ -101,21 +134,24 @@
 
 - (void) viewWillDisappear:(BOOL)animated
 {
+
+    [super viewWillDisappear:animated];
     // Removes the navigation bottom bar
     if (self.navigationController.topViewController != self)
     {
-        [self.navigationController setNavigationBarHidden:NO animated:animated];
+        self.navigationController.navigationBar.hidden = false;
     }
-    
-    [super viewWillDisappear:animated];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    // Adds the navigation bottom bar
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+
     [super viewWillAppear:animated];
+      // Adds the navigation bottom bar
+    self.navigationController.navigationBar.hidden = true;
+    //[self.navigationController setNavigationBarHidden:YES];
+
 }
 //---------------------------------------------------------------------------------
 
